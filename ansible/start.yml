@@ -1,0 +1,10 @@
+---
+- name: Install Jenkins
+  hosts: linux
+  gather_facts: false
+  become: true
+  tasks:
+  - name: Start
+    service:
+      name: jenkins
+      state: started

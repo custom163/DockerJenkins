@@ -1,0 +1,14 @@
+---
+- name: Install Docker & Jenkins
+  hosts: all 
+  gather_facts: false
+  become: yes
+  tasks:
+    - name: Get Script
+      get_url: 
+        url: https://raw.githubusercontent.com/wardviaene/jenkins-course/master/scripts/install_jenkins.sh 
+        dest: /home/ubuntu/install_jenkins.sh
+        mode: 0755
+     
+    - name: Install Script
+      command: sh /home/ubuntu/install_jenkins.sh
